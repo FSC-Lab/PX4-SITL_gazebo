@@ -347,12 +347,6 @@ add_library(gazebo_airspeed_plugin SHARED src/gazebo_airspeed_plugin.cpp)
 add_library(gazebo_camera_manager_plugin SHARED src/gazebo_camera_manager_plugin.cpp)
 add_library(gazebo_gps_plugin SHARED src/gazebo_gps_plugin.cpp)
 add_library(gazebo_groundtruth_plugin SHARED src/gazebo_groundtruth_plugin.cpp)
-add_library(gazebo_irlock_plugin SHARED src/gazebo_irlock_plugin.cpp)
-add_library(gazebo_lidar_plugin SHARED src/gazebo_lidar_plugin.cpp)
-add_library(gazebo_opticalflow_mockup_plugin SHARED src/gazebo_opticalflow_mockup_plugin.cpp)
-add_library(gazebo_opticalflow_plugin SHARED src/gazebo_opticalflow_plugin.cpp)
-add_library(gazebo_sonar_plugin SHARED src/gazebo_sonar_plugin.cpp)
-add_library(gazebo_uuv_plugin SHARED src/gazebo_uuv_plugin.cpp)
 add_library(gazebo_vision_plugin SHARED src/gazebo_vision_plugin.cpp)
 add_library(gazebo_controller_interface SHARED src/gazebo_controller_interface.cpp)
 add_library(gazebo_gimbal_controller_plugin SHARED src/gazebo_gimbal_controller_plugin.cpp)
@@ -363,10 +357,6 @@ add_library(gazebo_multirotor_base_plugin SHARED src/gazebo_multirotor_base_plug
 add_library(gazebo_wind_plugin SHARED src/gazebo_wind_plugin.cpp)
 add_library(gazebo_magnetometer_plugin SHARED src/gazebo_magnetometer_plugin.cpp src/geo_mag_declination.cpp)
 add_library(gazebo_barometer_plugin SHARED src/gazebo_barometer_plugin.cpp)
-add_library(gazebo_catapult_plugin SHARED src/gazebo_catapult_plugin.cpp)
-add_library(gazebo_usv_dynamics_plugin SHARED src/gazebo_usv_dynamics_plugin.cpp)
-add_library(gazebo_parachute_plugin SHARED src/gazebo_parachute_plugin.cpp)
-add_library(gazebo_airship_dynamics_plugin SHARED src/gazebo_airship_dynamics_plugin.cpp)
 add_library(gazebo_drop_plugin SHARED src/gazebo_drop_plugin.cpp)
 
 set(plugins
@@ -374,12 +364,6 @@ set(plugins
   gazebo_camera_manager_plugin
   gazebo_gps_plugin
   gazebo_groundtruth_plugin
-  gazebo_irlock_plugin
-  gazebo_lidar_plugin
-  gazebo_opticalflow_mockup_plugin
-  gazebo_opticalflow_plugin
-  gazebo_sonar_plugin
-  gazebo_uuv_plugin
   gazebo_vision_plugin
   gazebo_controller_interface
   gazebo_gimbal_controller_plugin
@@ -390,17 +374,12 @@ set(plugins
   gazebo_wind_plugin
   gazebo_magnetometer_plugin
   gazebo_barometer_plugin
-  gazebo_catapult_plugin
-  gazebo_usv_dynamics_plugin
-  gazebo_parachute_plugin
-  gazebo_airship_dynamics_plugin
   gazebo_drop_plugin
   )
 
 foreach(plugin ${plugins})
   target_link_libraries(${plugin} ${Boost_LIBRARIES} ${GAZEBO_LIBRARIES} ${TinyXML_LIBRARIES})
 endforeach()
-target_link_libraries(gazebo_opticalflow_plugin ${OpticalFlow_LIBS})
 
 # If BUILD_ROS_PLUGINS set to ON, build plugins that have ROS dependencies
 # Current plugins that can be used with ROS interface: gazebo_motor_failure_plugin
